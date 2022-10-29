@@ -39,5 +39,46 @@ Documentation goes here.
 
 ## Example of JWT token
 
+### JWT Token
+```python
+"eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ4MTNiMmI2LTk0ZmYtNGFkNC1hODg0LTM4ZWU2OTIyYWY3MSIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJmYTZjYzFkMC1kNDZkLTQwZDAtYTJlMy1lY2Y2MzkwOTYzYjYiLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tIiwiYXVkIjpudWxsLCJzdWIiOiJ1c2VybmFtZSIsImVtYWlsIjoidXNlci5uYW1lQGV4YW1wbGUuY29tIiwibmJmIjoxNjY3MDczMzE3LCJpYXQiOjE2NjcwNzMzMTcsImV4cCI6MTY2NzA3NjkxNywianRpIjoiZjkwOTg1OWQtMjZhMy00Nzg5LTg1M2MtOWViNjQwYmNiZDU5In0.oE1rwzIg_JsB50N9WFMZQ_ZLgmuzv2qdqEoj92A4VYGZ_Ljgiv5vAg4gUjWVWrfcvukwgSiWdlam_OmEdaSqhnZMiFShTi8d6tPbnvqQr9oKlHoEx4a10musiwb-BmPaCx7Mw1zwOEI-UcPJTz4apCespTl9G3gV8lqw4-PfTA_uH8iIOgF7-IbM0CPITLkt2bd_ztI4BooXBwN2NNhk4ui3StXNplgdFULK73hH9HNvMNhD0nmJHYQdS95YdhdHCHHkoz9Kgx7MyrnJIgDSnxsxHd71itpNodi4GvCCv6BniWRtUOAeSNP3LhEz4vUIJB7K8cN4wwe21rejjYuILw"
+```
 
-Riferimenti al sito jwt.io
+### JWT Token Header (decoded)
+```json
+{
+  "alg": "RS256",
+  "kid": "d813b2b6-94ff-4ad4-a884-38ee6922af71",
+  "typ": "JWT"
+}
+```
+
+### JWT Token Body (decoded)
+```json
+{
+  "uid": "fa6cc1d0-d46d-40d0-a2e3-ecf6390963b6",
+  "iss": "https://example.com",
+  "aud": null,
+  "sub": "username",
+  "email": "user.name@example.com",
+  "nbf": 1667073317,
+  "iat": 1667073317,
+  "exp": 1667076917,
+  "jti": "f909859d-26a3-4789-853c-9eb640bcbd59"
+}
+```
+
+### Standard Claims [1]
+
+* `iss` (issuer): Issuer of the JWT;
+* `sub` (subject): Subject of the JWT (the user);
+* `aud` (audience): Recipient for which the JWT is intended;
+* `exp` (expiration time): Time after which the JWT expires;
+* `nbf` (not before time): Time before which the JWT must not be accepted for processing;
+* `iat` (issued at time): Time at which the JWT was issued; can be used to determine age of the JWT;
+* `jti` (JWT ID): Unique identifier; can be used to prevent the JWT from being replayed (allows a token to be used only once);
+
+## References
+[1] [Auth0 Docs Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
+
+[2] [jwt.io](https://jwt.io/)
