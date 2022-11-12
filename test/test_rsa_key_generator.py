@@ -9,12 +9,12 @@ class TestRsaKeyGenerator(unittest.TestCase):
     def test_key_generator(self):
 
         try:
-            secret_key, public_key = generate_key_pair(
+            private_key, public_key = generate_key_pair(
                 kid=str(uuid.uuid4()),
                 save=True
             )
 
-            print(f"Your secret key:\n{secret_key}")
+            print(f"Your secret key:\n{private_key}")
 
             print(f"Your public key {public_key}")
 
