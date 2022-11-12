@@ -3,10 +3,6 @@ Python methods to generate a RSA key pair and to create and validate JWT tokens.
 
 If you like the idea or you find usefull this repo in your work, please leave a ⭐ to support this personal project.
 
-At the moment the package is not available using `pip install <PACKAGE-NAME>`.
-
-For the installation from the source code click **[here](#installation)**.
-
 ## RSA Key Generation
 ```python
 from rsa_key_generator import generate_key_pair
@@ -102,17 +98,3 @@ payload = validate_token(jwt_token=jwt_token, public_key=public_key)
 [1] [Auth0 Docs Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
 
 [2] [jwt.io](https://jwt.io/)
-
-## Installation
-For the installation from the source code type this command into your terminal window:
-```
-pip install git+<repository-link>
-```
-or
-```
-python -m pip install git+<repository-link>
-```
-or
-```
-python3 -m pip install git+<repository-link>
-```
