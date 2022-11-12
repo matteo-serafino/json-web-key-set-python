@@ -3,8 +3,17 @@ Python methods to generate a RSA key pair and to create and validate JWT tokens.
 
 If you like the idea or you find usefull this repo in your work, please leave a ⭐ to support this personal project.
 
-## Documentation
-Documentation goes here.
+At the moment the package is not available using `pip install <PACKAGE-NAME>`.
+
+For the installation from the source code click **[here](#installation)**.
+
+## RSA Key Generation
+```python
+from rsa_key_generator import generate_key_pair
+
+private_key, public_key = generate_key_pair(kid=str(uuid.uuid4()), save=True)
+```
+The save parameter set to true will save the private and the public key into two separate json files. 
 
 ## Example: Private and Public key pair
 **Private Key**
@@ -36,10 +45,21 @@ Documentation goes here.
     "use": "sig"
 }
 ```
+## JWT Token Generation
+```python
+from jwt_token_generator import create_token
 
-## Example of JWT token
+jwt_token = create_token(private_key=private_key, issuer="https://example.com", username="username", email="user.name@example.com")
+```
 
-### JWT Token
+## JWT Token Validation
+```python
+from jwt_token_generator import validate_token
+
+payload = validate_token(jwt_token=jwt_token, public_key=public_key)
+```
+
+## Example: JWT token
 ```python
 "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ4MTNiMmI2LTk0ZmYtNGFkNC1hODg0LTM4ZWU2OTIyYWY3MSIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJmYTZjYzFkMC1kNDZkLTQwZDAtYTJlMy1lY2Y2MzkwOTYzYjYiLCJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tIiwiYXVkIjpudWxsLCJzdWIiOiJ1c2VybmFtZSIsImVtYWlsIjoidXNlci5uYW1lQGV4YW1wbGUuY29tIiwibmJmIjoxNjY3MDczMzE3LCJpYXQiOjE2NjcwNzMzMTcsImV4cCI6MTY2NzA3NjkxNywianRpIjoiZjkwOTg1OWQtMjZhMy00Nzg5LTg1M2MtOWViNjQwYmNiZDU5In0.oE1rwzIg_JsB50N9WFMZQ_ZLgmuzv2qdqEoj92A4VYGZ_Ljgiv5vAg4gUjWVWrfcvukwgSiWdlam_OmEdaSqhnZMiFShTi8d6tPbnvqQr9oKlHoEx4a10musiwb-BmPaCx7Mw1zwOEI-UcPJTz4apCespTl9G3gV8lqw4-PfTA_uH8iIOgF7-IbM0CPITLkt2bd_ztI4BooXBwN2NNhk4ui3StXNplgdFULK73hH9HNvMNhD0nmJHYQdS95YdhdHCHHkoz9Kgx7MyrnJIgDSnxsxHd71itpNodi4GvCCv6BniWRtUOAeSNP3LhEz4vUIJB7K8cN4wwe21rejjYuILw"
 ```
@@ -82,3 +102,17 @@ Documentation goes here.
 [1] [Auth0 Docs Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
 
 [2] [jwt.io](https://jwt.io/)
+
+## Installation
+For the installation from the source code type this command into your terminal window:
+```
+pip install git+<repository-link>
+```
+or
+```
+python -m pip install git+<repository-link>
+```
+or
+```
+python3 -m pip install git+<repository-link>
+```
