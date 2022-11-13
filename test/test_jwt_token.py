@@ -47,16 +47,16 @@ class TestJwtTokenGenerator(unittest.TestCase):
             )
 
         try:
-            jwt_token_payload = validate_token(jwt_token=jwt_token, public_key=public_key)
+            is_valid, payload, exception = validate_token(jwt_token=jwt_token, public_key=public_key)
 
-            print(f"JWT token payload:\n{jwt_token_payload}")
+            print(f"JWT token payload:\n{payload}")
 
-            assert True
+            print(f"Exception:\n{exception}")
+
+            assert is_valid
 
         except Exception as ex:
 
             print(f"Exception: {ex}")
 
             assert False
-
-
