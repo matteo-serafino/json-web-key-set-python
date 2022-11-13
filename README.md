@@ -52,7 +52,7 @@ jwt_token = create_token(private_key=private_key, issuer="https://example.com", 
 ```python
 from jwt_token_generator import validate_token
 
-payload = validate_token(jwt_token=jwt_token, public_key=public_key)
+is_valid, payload, exception = validate_token(jwt_token=jwt_token, public_key=public_key)
 ```
 
 ## Example: JWT token
