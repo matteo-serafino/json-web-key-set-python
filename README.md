@@ -1,4 +1,4 @@
-# JSON Web Ket Set (JWKS)
+# JSON Web Key Set (JWKS)
 Python methods to generate a RSA key pair and to create and validate JWT tokens.
 
 If you like the idea or you find usefull this repo in your work, please leave a ⭐ to support this personal project.
